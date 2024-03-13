@@ -8,5 +8,20 @@
         "id": 123456,
         "nome": "Teste",
         "senha": "melacnia"
+    },
+    "0": {
+        "id": 0,
+        "nome": "Zero",
+        "senha": "0000"
+    },
+    "0.0": {
+        "id": 0.0,
+        "nome": "Zerinho",
+        "senha": "0000"
+    },
+    "000": {
+        "id": "000",
+        "nome": "zerozero",
+        "senha": "000"
     }
 }

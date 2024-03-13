@@ -17,35 +17,31 @@ def carregaDados(nomeArquivo):
         return {}
 
 def soma (num1,num2):
-    soma = num1 + num2
-    
+
     return f'''
     Calculando...
-    O resultado é: {soma}!'''
+    O resultado é: {num1 + num2}!'''
 
 def subtrair (num1,num2):
-    subtrair = num1 - num2
     
     return f'''
     Calculando...
-    O resultado é: {subtrair}!'''
+    O resultado é: {num1 - num2}!'''
 
 def multiplication(num1,num2):
-    multiplication= num1 * num2
 
     return f'''
     Calculando...
-    O resultado é: {multiplication}!'''
+    O resultado é: {num1 * num2}!'''
 
 def division(num1,num2):
     if num1 %2 == 0 or num2:
         print('Não é possível realizar divisão por zero!')
     else:
-
-        division = num1 / num2
+        
         return f'''
     Calculando...
-    O resultado é: {division}!'''
+    O resultado é: {num1 / num2}!'''
     
 def cadastrarUsuario(dados,id,nome,senha):
     dados[id]= {
@@ -63,5 +59,13 @@ def historico(dados,id,senha,teste):
 def informarUsuario(dados):
     for id, nome in dados.items():
         print(f'{id} - {nome['nome']}')
-   
+
+def convert(valor,num1,num2) :
+    from gtts import gTTS
+    import os
+    texto = valor(num1,num2)
+    language = 'en'
+    myobj = gTTS(text=texto, lang=language, slow=True)
+    myobj.save("resultado.mp3")
+    os.system("resultado.mp3")
 

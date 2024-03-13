@@ -3,6 +3,7 @@ from calculadora import *
 arquivo = "dados.json"
 dados = carregaDados(arquivo)
 teste = ''
+resultado = ''
 while True:
     menu = int(input(('''
 Digite a opção desejada:
@@ -20,7 +21,7 @@ Digite a opção desejada:
 0- Sair
 Opção desejada:''')))
     if menu == 1:
-        id = int(input('Digite o id do usuário:'))
+        id = input('Digite o id do usuário:')
         nome = input('Digite o nome do usuário:')
         senha = input('Crie uma senha:')
         print(cadastrarUsuario(dados,id,nome,senha))
@@ -33,7 +34,6 @@ Opção desejada:''')))
         teste = input('Digite algo testes:')
         print(historico(dados,id,senha,teste))
 
-
     elif menu ==3:
         pass
 
@@ -43,22 +43,27 @@ Opção desejada:''')))
         num1= float(input('Digite um número:'))
         num2 = float(input('Diite o segundo número:'))
         print(soma(num1,num2))
+        print(convert(soma,num1,num2))
+        
 
     elif menu == 6:
         print('Selecionada a opção de subtração!')
         num1= float(input('Digite um número:'))
         num2 = float(input('Diite o segundo número:'))
         print(subtrair(num1,num2))
+        print(convert(subtrair,num1,num2))
     
     elif menu == 7:
         num1= float(input('Digite um número:'))
         num2 = float(input('Diite o segundo número:'))
         print(multiplication(num1,num2))
+        print(convert(multiplication,num1,num2))
 
     elif menu == 8:
         num1= float(input('Digite um número:'))
         num2 = float(input('Diite o segundo número:'))
         print(multiplication(num1,num2))
+        print(convert(division,num1,num2))
     
     elif menu == 11:
         print(f'''Gerando relatório de usuários....
