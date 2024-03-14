@@ -2,8 +2,6 @@
 from calculadora import *
 arquivo = "dados.json"
 dados = carregaDados(arquivo)
-teste = ''
-resultado = ''
 while True:
     menu = int(input(('''
 Digite a opção desejada:
@@ -17,17 +15,19 @@ Digite a opção desejada:
 8- Divisão 
 9- Exportar relatório
 10- Remover usuário
-11- Informação
+11- Listar usuários
 0- Sair
 Opção desejada:''')))
     if menu == 1:
-        id = input('Digite o id do usuário:')
+        #Cadastro do usuário
+        id = input('Di[gite o id do usuário:')
         nome = input('Digite o nome do usuário:')
         senha = input('Crie uma senha:')
         print(cadastrarUsuario(dados,id,nome,senha))
         gravaDados(arquivo,dados)
 
     elif menu == 2:
+        #Histórico do usuário
         print('Acessando histórico....')
         id = int(input('Confirme o id do usuário:'))
         senha = input('Digite a senha do usuário:')
@@ -43,10 +43,11 @@ Opção desejada:''')))
         num1= float(input('Digite um número:'))
         num2 = float(input('Diite o segundo número:'))
         print(soma(num1,num2))
-        print(convert(soma,num1,num2))
+        convert(soma,num1,num2)
         
 
     elif menu == 6:
+        #Subtração
         print('Selecionada a opção de subtração!')
         num1= float(input('Digite um número:'))
         num2 = float(input('Diite o segundo número:'))
@@ -54,24 +55,29 @@ Opção desejada:''')))
         print(convert(subtrair,num1,num2))
     
     elif menu == 7:
+        #Multiplication
         num1= float(input('Digite um número:'))
         num2 = float(input('Diite o segundo número:'))
         print(multiplication(num1,num2))
         print(convert(multiplication,num1,num2))
 
     elif menu == 8:
+        #divisião
         num1= float(input('Digite um número:'))
         num2 = float(input('Diite o segundo número:'))
-        print(multiplication(num1,num2))
-        print(convert(division,num1,num2))
-    
+        print(division(num1,num2))
+        convert(division,num1,num2)
+
+    elif menu == 10:
+        print('Opção selecionada: Remover usuário!')
+        id = input('Digite o ID do usuário:')
+        senha = input('Digite a senha do usuário:')
+        removerUsuario(dados,id,senha)    
     elif menu == 11:
         print(f'''Gerando relatório de usuários....
 Aguarde um momento por gentileza!
 {"=-" * 20}
-
               ''')
-
         print(informarUsuario(dados))
         print(f'''
 Relatório de usuários gerados com sucesso!

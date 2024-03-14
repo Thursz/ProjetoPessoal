@@ -64,8 +64,17 @@ def convert(valor,num1,num2) :
     from gtts import gTTS
     import os
     texto = valor(num1,num2)
-    language = 'en'
-    myobj = gTTS(text=texto, lang=language, slow=True)
-    myobj.save("resultado.mp3")
-    os.system("resultado.mp3")
-
+    if texto == True:
+        language = 'en'
+        myobj = gTTS(text=texto, lang=language, slow=True)
+        myobj.save("resultado.mp3")
+        os.system("resultado.mp3")
+    else:
+        texto = 'Não é possível realizar divisão por zero'
+    
+def removerUsuario(dados,id,senha):
+    if id and senha in dados[id]:
+        dados.pop(id,senha)
+        print('Usuário removido com sucesso!')
+    else:
+        print('Não encontrado')
