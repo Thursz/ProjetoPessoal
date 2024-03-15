@@ -20,7 +20,7 @@ Digite a opção desejada:
 Opção desejada:''')))
     if menu == 1:
         #Cadastro do usuário
-        id = input('Di[gite o id do usuário:')
+        id = input('Digite o id do usuário:')
         nome = input('Digite o nome do usuário:')
         senha = input('Crie uma senha:')
         print(cadastrarUsuario(dados,id,nome,senha))
@@ -44,7 +44,6 @@ Opção desejada:''')))
         num2 = float(input('Diite o segundo número:'))
         print(soma(num1,num2))
         convert(soma,num1,num2)
-        
 
     elif menu == 6:
         #Subtração
@@ -58,21 +57,24 @@ Opção desejada:''')))
         #Multiplication
         num1= float(input('Digite um número:'))
         num2 = float(input('Diite o segundo número:'))
-        print(multiplication(num1,num2))
+        multiplication(num1,num2)
         print(convert(multiplication,num1,num2))
 
     elif menu == 8:
         #divisião
         num1= float(input('Digite um número:'))
         num2 = float(input('Diite o segundo número:'))
-        print(division(num1,num2))
-        convert(division,num1,num2)
+        if num2 == 0:
+            division(num1,num2)
+        else:
+            convert(division,num1,num2)
 
     elif menu == 10:
         print('Opção selecionada: Remover usuário!')
         id = input('Digite o ID do usuário:')
         senha = input('Digite a senha do usuário:')
-        removerUsuario(dados,id,senha)    
+        removerUsuario(dados,id,senha) 
+
     elif menu == 11:
         print(f'''Gerando relatório de usuários....
 Aguarde um momento por gentileza!

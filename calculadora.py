@@ -35,10 +35,16 @@ def multiplication(num1,num2):
     O resultado é: {num1 * num2}!'''
 
 def division(num1,num2):
-    if num1 %2 == 0 or num2:
+    if num2 == 0:
         print('Não é possível realizar divisão por zero!')
+        from gtts import gTTS
+        import os
+        texto = 'Não é possível dividir por zero!'
+        language = 'pt'
+        myobj = gTTS(text=texto, lang=language, slow=False)
+        myobj.save("resultado.mp3")
+        os.system("resultado.mp3")
     else:
-        
         return f'''
     Calculando...
     O resultado é: {num1 / num2}!'''
@@ -58,20 +64,17 @@ def historico(dados,id,senha,teste):
 
 def informarUsuario(dados):
     for id, nome in dados.items():
-        print(f'{id} - {nome['nome']}')
+        print(f'{id} - {nome["nome"]}')
 
 def convert(valor,num1,num2) :
     from gtts import gTTS
     import os
     texto = valor(num1,num2)
-    if texto == True:
-        language = 'en'
-        myobj = gTTS(text=texto, lang=language, slow=True)
-        myobj.save("resultado.mp3")
-        os.system("resultado.mp3")
-    else:
-        texto = 'Não é possível realizar divisão por zero'
-    
+    language = 'pt'
+    myobj = gTTS(text=texto, lang=language, slow=False)
+    myobj.save("resultado.mp3")
+    os.system("resultado.mp3")
+
 def removerUsuario(dados,id,senha):
     if id and senha in dados[id]:
         dados.pop(id,senha)
